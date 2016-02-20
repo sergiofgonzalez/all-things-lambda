@@ -37,9 +37,13 @@ module.exports = function (grunt) {
       }
     },
     watch: {
+      cfg: {
+        files: ["package.json"],
+        tasks: ["build"]
+      },
       lambda: {
         files: ["public/**/*.js"],
-        tasks: ["jshint:lambda", "compress:build"]
+        tasks: ["jshint:lambda", "build", "compress:build", "copy:to-host"]
       },
       rebuild: {
         files: ["Gruntfile.js"],
