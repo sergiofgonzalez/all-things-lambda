@@ -43,7 +43,7 @@ module.exports = function (grunt) {
       },
       rebuild: {
         files: ["Gruntfile.js"],
-        tasks: ["jshint:build", "build:debug"]
+        tasks: ["jshint:build", "build"]
       }
     }
   });
