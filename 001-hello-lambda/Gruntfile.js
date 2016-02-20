@@ -39,7 +39,7 @@ module.exports = function (grunt) {
     watch: {
       lambda: {
         files: ["public/**/*.js"],
-        tasks: ["jshint:client", "compress:build"]
+        tasks: ["jshint:lambda", "compress:build"]
       },
       rebuild: {
         files: ["Gruntfile.js"],
