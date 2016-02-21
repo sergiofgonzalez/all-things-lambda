@@ -1,5 +1,5 @@
 # All Things Lambda &mdash; Advanced Topics
-> Advanced concepts
+> Advanced concepts: the context object, OS commands, logging and testing Lambdas
 
 ## 005-context-properties
 Illustrates some of the properties on the `context` object.
