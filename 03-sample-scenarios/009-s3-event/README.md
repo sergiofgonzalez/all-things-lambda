@@ -1,8 +1,8 @@
 # All Things Lambda &mdash; 009-s3-event
-> interacting with AWS S3 from a Lambda function
+> how to write a Lambda function that is activated by an S3 event
 
 ## Description
-Illustrates how to interact with AWS S3 service from a Lambda function. The example is a modification of the *Hello, World* example, only that the name to be returned in the `context.succeed` is taken from the context of an S3 file.
+Illustrates how to interact with AWS S3 service from a Lambda function. The example is a modification of the *Hello, World* example, only that the name to be returned in the `context.succeed` is taken from the context of an S3 file. The function is activated each time a file is uploaded to the configured bucket.
 
 These are the configuration details:
 + S3 bucket &mdash; `s3-lambda-test-bucket`, created on the same region as the Lambda function

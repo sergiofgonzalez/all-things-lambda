@@ -19,6 +19,7 @@ exports.handler = function (event, context) {
       logger.error(err);
       context.fail("Error getting object `" + key + "` from bucket `" + bucket + "`. Make sure they exist and your bucket is in the same region as this function");
     } else {
+      logger.info("Successful activation. Returning `Hello, " + data.Body + "`");
       context.succeed("Hello, " + data.Body);
     }
   });
