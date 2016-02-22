@@ -41,7 +41,7 @@ exports.handler = function (event, context) {
         // Upload the resized data to S3
         s3.putObject({
           Bucket: bucket,
-          Key: "resized/" + width + "-" + key,
+          Key: "resized/" + width + "/" + key,
           Body: resizedBuffer,
           ContentType: "image/jpg" }, function (s3UploadErr) {
             logger.error("Error uploading resized image to s3:", s3UploadErr);

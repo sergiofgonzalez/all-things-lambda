@@ -72,3 +72,4 @@ For testing, you can use the following event:
   ]
 }
 ```
+Note that if you intend to use S3 triggers, you should configure a *prefix* and *suffix* to prevent recursive activation of the Lambda function!!
