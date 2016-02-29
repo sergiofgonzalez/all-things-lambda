@@ -28,7 +28,6 @@ compress: {
 The Lambda function needs to be configured with access to `s3-lambda-test-images` bucket with `GetObject` and `PutObject` permissions.
 This is the policy that needs to be attached to the role:
 ```JSON
-Show Policy
  {
     "Version": "2012-10-17",
     "Statement": [
