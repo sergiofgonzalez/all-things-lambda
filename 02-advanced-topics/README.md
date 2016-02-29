@@ -12,3 +12,6 @@ Illustrates how to use custom Node.js modules from a Lambda function. In particu
 
 ## 008-custom-testing-lib
 Illustrates how to write a simple testing library for your Lambda function.
+
+## e01-globally-initialized-code
+Demonstrates how Lambdas (executing in the same container) shares the globally initialized code that is not part of the handler itself.
