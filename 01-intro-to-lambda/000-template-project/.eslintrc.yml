@@ -11,7 +11,7 @@ rules:
     - error
     - unix
   no-console:
-    - off       # not using logging framework
+    - off      # use warn if using logging framework and want to flag console usage
   quotes:
     - error
     - double

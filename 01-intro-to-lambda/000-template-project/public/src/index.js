@@ -16,5 +16,6 @@
     The argument passed to `succeed` will be returned to the invoker.
 */
 exports.handler = function (event, context, done) {
+  console.log(`Executing lambda function with context=${context}`);
   done(null, `Hello, world!`);
 };

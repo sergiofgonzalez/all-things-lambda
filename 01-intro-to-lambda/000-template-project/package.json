@@ -25,15 +25,15 @@
     "start": "node build/$npm_package_main",
     "lint": "eslint public/src/",
     "clean:local": "rm -rf build/",
-    "clean:dist": "rm -rf build/",
+    "clean:dist": "rm -rf $npm_package_config_dist/",
     "clean": "npm run clean:local && npm run clean:dist",
     "build:local": "npm run lint",
     "prebuild:local": "npm run clean",
     "postbuild:local": "cp -r public/src/ build/",
     "debug": "node --inspect --debug-brk build/index.js",
-    "dev": "nodemon --ext js,json,yml --watch public/src --watch .eslintrc.yml --exec 'npm run build --silent && npm start --silent'",
+    "dev": "nodemon --ext js,json,yml --watch public/src --watch .eslintrc.yml --exec 'npm run build && npm start'",
     "prebuild:dist": "mkdir -p $npm_package_config_dist",
     "build:dist": "npm run lint",
-    "postbuild:dist": "cd public/src && zip --verbose --recurse-paths --filesync $npm_package_config_dist/$npm_package_name-$npm_package_version.zip *"
+    "postbuild:dist": "cd public/src && zip --verbose --recurse-paths --filesync ../../$npm_package_config_dist/$npm_package_name-$npm_package_version.zip *"
   }  
 }

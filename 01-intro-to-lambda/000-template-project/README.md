@@ -23,14 +23,14 @@ All the project assumes this simple directory structure which can be customized 
 ### Tasks
 The project uses *NPM* for the build tasks:
 + `npm start` &mdash; runs the entry point for the application/module
-+ `npm lint` &mdash; runs the linter on the source code of your project
-+ `npm clean:local` &mdash; cleans the `build/` directory
-+ `npm clean:dist` &mdash; cleans the *dist* directory according to the configuration
-+ `npm clean` &mdash; cleans both the local and the *dist* directory
-+ `npm build:local` &mdash; performs the local build which consists in linting the source code and copying the sources to the `build/` directory.
- + `npm build:dist` &mdash; performs the distribution build which consists in linting the source code and creating a zip in the configured *dist* directory which can be uploaded to AWS Lambda service.
-+ `npm debug` &mdash; starts the debugger with the version that is found in the `build` directory 
-+ `npm dev` &mdash; Continuous Development mode. It is assumes that nodemon is installed globally 
++ `npm run lint` &mdash; runs the linter on the source code of your project
++ `npm run clean:local` &mdash; cleans the `build/` directory
++ `npm run clean:dist` &mdash; cleans the *dist* directory according to the configuration
++ `npm run clean` &mdash; cleans both the local and the *dist* directory
++ `npm run build:local` &mdash; performs the local build which consists in linting the source code and copying the sources to the `build/` directory.
+ + `npm run build:dist` &mdash; performs the distribution build which consists in linting the source code and creating a zip in the configured *dist* directory which can be uploaded to AWS Lambda service.
++ `npm run debug` &mdash; starts the debugger with the version that is found in the `build` directory 
++ `npm run dev` &mdash; Continuous Development mode. It is assumes that nodemon is installed globally 
 
 ### Customization 
 
@@ -69,6 +69,11 @@ npm config ls
 ```
 
 You can remove entries you no longer want by modifying the contents of the `~/.npmrc` file.
+
+It is also recommended to reduce the verbosity of the NPM output to be able to see the output of the tasks. You can do that by adding the following property to `~/.npmrc`:
+```
+loglevel=silent
+```
 
 **NOTE** 
 As the value from the `dist` key is concatenated with other values you should not include the trailing `/` in the directory specification.
