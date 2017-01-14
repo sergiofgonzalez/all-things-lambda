@@ -19,7 +19,7 @@
   "devDependencies": {},
   "dependencies": {},
   "config" : { 
-    "dist" : "dist" 
+    "dist" : "./dist" 
   },
   "scripts": {
     "start": "node build/$npm_package_main",
@@ -34,6 +34,6 @@
     "dev": "nodemon --ext js,json,yml --watch public/src --watch .eslintrc.yml --exec 'npm run build && npm start'",
     "prebuild:dist": "mkdir -p $npm_package_config_dist",
     "build:dist": "npm run lint",
-    "postbuild:dist": "cd public/src && zip --verbose --recurse-paths --filesync ../../$npm_package_config_dist/$npm_package_name-$npm_package_version.zip *"
+    "postbuild:dist": "cd public/src && zip --verbose --recurse-paths --filesync $npm_package_config_dist/$npm_package_name-$npm_package_version.zip *"
   }  
 }
