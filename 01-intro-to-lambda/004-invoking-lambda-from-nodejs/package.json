@@ -1,9 +1,10 @@
 {
-  "name": "004-invoking-lambda-from-node",
+  "name": "000-lambda-template-project",
   "version": "0.0.0",
-  "description": "Illustrates the activation of Lambda functions from a Node.js app",
+  "description": "Project template for AWS Lambda function",
+  "main": "index.js",
   "engines": {
-    "node": "4.2.2"
+    "node": "6.9.2"
   },
   "repository": {
     "type": "git",
@@ -15,15 +16,18 @@
     "email": "sergio.f.gonzalez@gmail.com"
   },
   "license": "ISC",
-  "devDependencies": {
-    "grunt": "0.4.5",
-    "grunt-contrib-clean": "0.7.0",
-    "grunt-contrib-copy": "0.8.2",
-    "grunt-contrib-jshint": "0.11.3",
-    "grunt-contrib-watch": "0.6.1",
-    "jshint-stylish": "2.1.0"
-  },
+  "devDependencies": {},
   "dependencies": {
-    "aws-sdk": "2.2.37"
+    "aws-sdk": "2.7.21"
+  },
+  "scripts": {
+    "start": "node build/$npm_package_main",
+    "lint": "eslint public/src/",
+    "clean": "rm -rf build/",
+    "build": "npm run lint",
+    "prebuild": "npm run clean",
+    "postbuild": "cp -r public/src/ build/",
+    "debug": "node --inspect --debug-brk build/index.js",
+    "dev": "nodemon --ext js,json,yml --watch public/src --watch .eslintrc.yml --exec 'npm run build && npm start'"
   }
 }
