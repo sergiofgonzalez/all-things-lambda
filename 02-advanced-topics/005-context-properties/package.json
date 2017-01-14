@@ -1,9 +1,10 @@
 {
   "name": "005-context-properties",
   "version": "0.0.0",
-  "description": "Properties of the context object",
+  "description": "displaying some of the context properties",
+  "main": "index.js",
   "engines": {
-    "node": "4.2.2"
+    "node": "6.9.2"
   },
   "repository": {
     "type": "git",
@@ -13,16 +14,26 @@
   "author": {
     "name": "Sergio F. Gonzalez",
     "email": "sergio.f.gonzalez@gmail.com"
-  },
+  },  
   "license": "ISC",
-  "devDependencies": {
-    "grunt": "0.4.5",
-    "grunt-contrib-clean": "0.7.0",
-    "grunt-contrib-compress": "1.0.0",
-    "grunt-contrib-copy": "0.8.2",
-    "grunt-contrib-jshint": "0.11.3",
-    "grunt-contrib-watch": "0.6.1",
-    "jshint-stylish": "2.1.0"
+  "devDependencies": {},
+  "dependencies": {},
+  "config" : { 
+    "dist" : "./dist" 
   },
-  "dependencies": {}
+  "scripts": {
+    "start": "node build/$npm_package_main",
+    "lint": "eslint public/src/",
+    "clean:local": "rm -rf build/",
+    "clean:dist": "rm -rf $npm_package_config_dist/",
+    "clean": "npm run clean:local && npm run clean:dist",
+    "build:local": "npm run lint",
+    "prebuild:local": "npm run clean",
+    "postbuild:local": "cp -r public/src/ build/",
+    "debug": "node --inspect --debug-brk build/index.js",
+    "dev": "nodemon --ext js,json,yml --watch public/src --watch .eslintrc.yml --exec 'npm run build && npm start'",
+    "prebuild:dist": "mkdir -p $npm_package_config_dist",
+    "build:dist": "npm run lint",
+    "postbuild:dist": "cd public/src && zip --verbose --recurse-paths --filesync $npm_package_config_dist/$npm_package_name-$npm_package_version.zip *"
+  }  
 }
