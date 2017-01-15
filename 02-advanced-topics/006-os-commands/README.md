@@ -1,5 +1,24 @@
 # All Things Lambda &mdash; 006-os-commands
-> invoking OS commands from a Lambda function
+> executing system calls from a Lambda function
 
 ## Description
-Illustrates how to invoke a simple OS command using `spawn`. In the example, `ls -lah` is executed and the results and printed on the console, which end up on the *CloudWatch* logs.
+The example illustrates how to perform and OS call from a Lambda function using `child_process.spawn`.
+
+The Lambda must be configured with the following policy:
+**Policy Name &mdash; lambda_basic_execution_test**
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:*:*:*"
+    }
+  ]
+}
+```

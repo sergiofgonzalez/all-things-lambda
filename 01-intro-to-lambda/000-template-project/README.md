@@ -1,4 +1,4 @@
-# All Things Lambda &mdash; 001-hello-lambda
+# All Things Lambda &mdash; 000-template-project
 > hello, world! lambda
 
 ## Description
