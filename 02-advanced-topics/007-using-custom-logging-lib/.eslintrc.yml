@@ -1,0 +1,21 @@
+env:
+  es6: true
+  node: true
+extends: 'eslint:recommended'
+rules:
+  indent:
+    - error
+    - 2
+    - SwitchCase: 1
+  linebreak-style:
+    - error
+    - unix
+  no-console:
+    - off      # use warn if using logging framework and want to flag console usage
+  quotes:
+    - error
+    - double
+    - allowTemplateLiterals: true    
+  semi:
+    - error
+    - always

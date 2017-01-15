@@ -1,0 +1,39 @@
+{
+  "name": "007-using-custom-logging-lib",
+  "version": "0.0.0",
+  "description": "Lambda using a custom logging lib",
+  "main": "index.js",
+  "engines": {
+    "node": "6.9.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sergiofgonzalez/all-things-lambda.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Sergio F. Gonzalez",
+    "email": "sergio.f.gonzalez@gmail.com"
+  },  
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {},
+  "config" : { 
+    "dist" : "./dist" 
+  },
+  "scripts": {
+    "start": "node build/$npm_package_main",
+    "lint": "eslint public/src/",
+    "clean:local": "rm -rf build/",
+    "clean:dist": "rm -rf $npm_package_config_dist/",
+    "clean": "npm run clean:local && npm run clean:dist",
+    "build:local": "npm run lint",
+    "prebuild:local": "npm run clean",
+    "postbuild:local": "cp -r public/src/ build/",
+    "debug": "node --inspect --debug-brk build/index.js",
+    "dev": "nodemon --ext js,json,yml --watch public/src --watch .eslintrc.yml --exec 'npm run build:local && npm start'",
+    "prebuild:dist": "mkdir -p $npm_package_config_dist",
+    "build:dist": "npm run lint",
+    "postbuild:dist": "cd public/src && zip --verbose --recurse-paths --filesync $npm_package_config_dist/$npm_package_name-$npm_package_version.zip *"
+  }  
+}
