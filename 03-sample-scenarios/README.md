@@ -1,7 +1,7 @@
 # All Things Lambda &mdash; Sample Scenarios
-> Sample scenarios: in progress
+> Sample scenarios: Lambda functions in real life scenarios
 
-## 009-s3-event
+## 009-s3-trigger
 Illustrates how to write a Lambda function that is activated by an S3 event.
 
 ## 010-scheduled-activation
