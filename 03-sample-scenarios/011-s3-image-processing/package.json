@@ -1,9 +1,10 @@
 {
   "name": "011-s3-image-processing",
   "version": "0.0.0",
-  "description": "Lambda function activated by images uploaded to S3",
+  "description": "Doing image processing with a Lambda function",
+  "main": "index.js",
   "engines": {
-    "node": "4.2.2"
+    "node": "6.9.2"
   },
   "repository": {
     "type": "git",
@@ -15,17 +16,27 @@
     "email": "sergio.f.gonzalez@gmail.com"
   },
   "license": "ISC",
-  "devDependencies": {
-    "grunt": "0.4.5",
-    "grunt-contrib-clean": "0.7.0",
-    "grunt-contrib-compress": "1.0.0",
-    "grunt-contrib-copy": "0.8.2",
-    "grunt-contrib-jshint": "0.11.3",
-    "grunt-contrib-watch": "0.6.1",
-    "jshint-stylish": "2.1.0"
-  },
+  "devDependencies": {},
   "dependencies": {
-    "async": "1.5.2",
-    "gm": "1.21.1"
+    "async": "2.1.4",
+    "gm": "1.23.0"
+  },
+  "config": {
+    "dist": "./dist"
+  },
+  "scripts": {
+    "start": "node build/$npm_package_main",
+    "lint": "eslint public/src/",
+    "clean:local": "rm -rf build/",
+    "clean:dist": "rm -rf $npm_package_config_dist/$npm_package_name-$npm_package_version.zip",
+    "clean": "npm run clean:local && npm run clean:dist",
+    "build:local": "npm run lint",
+    "prebuild:local": "npm run clean:local",
+    "postbuild:local": "cp -r public/src/ build/",
+    "debug": "node --inspect --debug-brk build/index.js",
+    "dev": "nodemon --ext js,json,yml --watch public/src --watch .eslintrc.yml --exec 'npm run build:local && npm start'",
+    "prebuild:dist": "mkdir -p $npm_package_config_dist",
+    "build:dist": "npm run lint",
+    "postbuild:dist": "cd public/src && zip --verbose --recurse-paths --filesync $npm_package_config_dist/$npm_package_name-$npm_package_version.zip * && cd ../.. && zip --verbose --recurse-paths $npm_package_config_dist/$npm_package_name-$npm_package_version.zip node_modules"
   }
 }
