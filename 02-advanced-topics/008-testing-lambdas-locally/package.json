@@ -1,7 +1,7 @@
 {
-  "name": "000-lambda-template-project",
+  "name": "008-testing-lambdas-locally",
   "version": "0.0.0",
-  "description": "Project template for AWS Lambda function",
+  "description": "Testing lambdas locally",
   "main": "index.js",
   "engines": {
     "node": "6.9.2"
@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "node build/$npm_package_main",
-    "lint": "eslint public/src/",
+    "lint": "eslint public/src/ public/tst/",
     "clean:local": "rm -rf build/",
     "clean:dist": "rm -rf $npm_package_config_dist/",
     "clean": "npm run clean:local && npm run clean:dist",
@@ -34,6 +34,7 @@
     "dev": "nodemon --ext js,json,yml --watch public/src --watch .eslintrc.yml --exec 'npm run build:local && npm start'",
     "prebuild:dist": "mkdir -p $npm_package_config_dist",
     "build:dist": "npm run lint",
-    "postbuild:dist": "cd public/src && zip --verbose --recurse-paths --filesync $npm_package_config_dist/$npm_package_name-$npm_package_version.zip *"
+    "postbuild:dist": "cd public/src && zip --verbose --recurse-paths --filesync $npm_package_config_dist/$npm_package_name-$npm_package_version.zip *",
+    "test": "npm run lint && node public/tst/test-index.js"
   }  
 }
