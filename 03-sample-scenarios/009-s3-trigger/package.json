@@ -1,7 +1,7 @@
 {
-  "name": "000-lambda-template-project",
+  "name": "009-s3-trigger",
   "version": "0.0.0",
-  "description": "Project template for AWS Lambda function",
+  "description": "Lambda that reads file on S3 and is activated by S3 trigger",
   "main": "index.js",
   "engines": {
     "node": "6.9.2"
