@@ -14,6 +14,7 @@ These are the configuration details:
 
 The Lambda function must be configured with a role that includes two policies:
 + policy to be able to write the logs in CloudWatch
+
   ```json
   {
     "Version": "2012-10-17",
@@ -38,6 +39,7 @@ The Lambda function must be configured with a role that includes two policies:
   ```
 
 + policy to be able to read information from the configured bucket
+
   ```json
   {
     "Version": "2012-10-17",
